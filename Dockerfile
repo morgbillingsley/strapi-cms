@@ -11,11 +11,10 @@ RUN yarn install
 COPY . .
 
 RUN yarn build
+CMD ["yarn", "start"]
 
 
 FROM nginx
 
 COPY ./nginx/upstream.conf /etc/nginx/conf.d/upstream.conf
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-
-CMD --from=node ["yarn", "start"]
