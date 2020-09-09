@@ -31,11 +31,11 @@ server {
 4. Once all of your customization is set up, you can build the nginx server using docker:
 
 ```bash
-docker build -t image-name .
+docker-compose up
 ```
 
-5. Run the docker image on port 80 in the background
+Or if you're deploying it on a production server
 
 ```bash
-docker run -p 80:80 -d --name container-name image-name
+docker-composer up -d
 ```
