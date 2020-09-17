@@ -11,16 +11,11 @@ A bootstraped version of the strapi Headless CMS and admin dashboard with Docker
 git clone https://github.com/morgbillingsley/strapi-cms.git && rm -rf .git
 ```
 
-2. Update the nginx config file
+2. Update the docker-compose file
 
-At the very minimum, you will need to change the server_name for the HTTP protocol. It is currently listed as `api.example.com` as a placeholder. Change this to your domain name. You can also follow the instruction comments and [Nginx Docs](http://nginx.org/en/docs/http/configuring_https_servers.html) to enable the HTTPS protocol.
+    - On line 21, change the `CERTBOT_EMAIL` field to your email.
+    - On line 23, change the `FQDN` variable to your domain name.
 
-```conf
-server {
-    # Listen HTTP
-    listen 80;
-    server_name api.example.com;
-```
 
 3. Add your company's logo(s) and custom config settings. The structure of the added folders and directories goes as follows
 

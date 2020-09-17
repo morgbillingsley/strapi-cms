@@ -11,13 +11,19 @@ services:
     networks:
       - app-network
   webserver:
-    image: nginx:mainline-alpine
     container_name: webserver
     restart: unless-stopped
+    image: staticfloat/nginx-certbot
     ports:
-      - "80:80"
+        - 80:80/tcp
+        - 443:443/tcp
+    environment:
+        CERTBOT_EMAIL: owner@company.com
+        ENVSUBST_VARS: FQDN
+        FQDN: server.company.com
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./conf.d:/etc/nginx/user.conf.d:ro
+      - letsencrypt:/etc/letsencrypt
     depends_on:
       - nodejs
     networks:

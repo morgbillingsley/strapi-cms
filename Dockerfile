@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY ./package.json /app/package.json
 
-RUN yarn install
+RUN NODE_ENV=production yarn install
 
 COPY . .
 
